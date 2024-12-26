@@ -21,13 +21,16 @@ const TaskForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/tasks", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(task),
-      });
+      const response = await fetch(
+        "https://task-manager-kmf1.onrender.com/api/tasks",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(task),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

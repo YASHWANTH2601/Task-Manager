@@ -26,7 +26,9 @@ const TaskList = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tasks");
+      const response = await fetch(
+        `https://task-manager-kmf1.onrender.com/api/tasks`
+      );
       if (response.ok) {
         const data = await response.json();
         setTasks(data);
@@ -40,9 +42,12 @@ const TaskList = () => {
 
   const deleteTask = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/tasks/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://task-manager-kmf1.onrender.com/api/tasks/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         setTasks(tasks.filter((t) => t._id !== id));

@@ -12,7 +12,9 @@ const TaskDetails = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/tasks/${id}`);
+      const response = await fetch(
+        `https://task-manager-kmf1.onrender.com/api/tasks/${id}`
+      );
       if (response.ok) {
         const data = await response.json();
         setTask(data);
